@@ -1,1 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(33, 105, 163, 1) 0%,
+    rgba(47, 116, 200, 1) 51%,
+    rgba(64, 143, 206, 1) 100%
+  );
+}
+
+:root {
+  --lightBlue: #2f74c8;
+  --darkBlue: #2169a3;
+  --skyBlue: #408fce;
+  --gray: #cbcbcb;
+  --lightGray: #e6e6e4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  border-radius: 15px;
+  padding: 15px;
+  background: #fff;
+  width: 95%;
+  margin: 15px auto;
+}
+/****************Head******************/
+.head__wrapper {
+  width: 100%;
+  height: 10vh;
+  background: var(--skyBlue);
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.head__wrapper h1 {
+  text-align: center;
+  line-height: 10vh;
+  color: #fff;
+  letter-spacing: 10px;
+}
+/****************Head******************/
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+/****************form__container******************/
+.form__container {
+  padding: 5px 15px;
+  width: 30%;
+  height: 30vh;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.form__container h2 {
+  color: var(--lightBlue);
+  margin-bottom: 10px;
+}
+.form__container .task-form {
+  height: 20vh;
+  position: relative;
+}
+.form__container .add-todo-button {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+.content__container {
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+/****************form__container******************/
+/****************todos_list******************/
+.todos__container {
+  padding: 5px 15px;
+  width: 68%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.todos__container h2 {
+  color: var(--lightBlue);
+  margin-bottom: 10px;
+}
+.todos__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+/****************todos_list******************/
+/****************todoItem******************/
+.item__container {
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  height: 15vh;
+  cursor: pointer;
+}
+.item__container h4 {
+  color: #fff;
+}
+.background-blue {
+  background: #0d4c92;
+}
+.background-green {
+  background: #59c1bd;
+}
+.hidden-button {
+  opacity: 0;
+}
+.item__container:hover .hidden-button {
+  opacity: 1;
+}
+/****************todoItem******************/
