@@ -27,6 +27,16 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const handleCompleted = (id) => {
+    const newTodos = [...todos];
+    newTodos.map((item) => {
+      if (item.id === id) {
+        item.completed = !item.completed;
+      }
+    });
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container">
       <Head />
@@ -39,6 +49,7 @@ function App() {
             todos={todos}
             title="Todos List"
             handleDelete={removeTodo}
+            handleCompleted={handleCompleted}
           />
         )}
       </div>

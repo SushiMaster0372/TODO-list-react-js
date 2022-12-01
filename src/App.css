@@ -29,6 +29,7 @@ body {
   background: #fff;
   width: 95%;
   margin: 15px auto;
+  /* position: relative; */
 }
 /****************Head******************/
 .head__wrapper {
@@ -51,9 +52,11 @@ body {
 }
 /****************form__container******************/
 .form__container {
+  position: sticky;
+  top: 10px;
   padding: 5px 15px;
   width: 30%;
-  height: 30vh;
+  height: 50vh;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -75,6 +78,41 @@ body {
   margin: 0 auto;
   margin-top: 10px;
 }
+.form__container hr {
+  margin: 10px 0;
+}
+/****************info__wrapper******************/
+.info__wrapper {
+  height: 15vh;
+  padding: 5px 15px;
+}
+.info__wrapper h5 {
+  margin-bottom: 5px;
+  color: var(--lightBlue);
+}
+.completed-tasks {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.completed-tasks .square {
+  width: 15px;
+  height: 15px;
+  background: #0d4c92;
+  margin-right: 15px;
+}
+.not-completed-tasks {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.not-completed-tasks .square {
+  width: 15px;
+  height: 15px;
+  background: #59c1bd;
+  margin-right: 15px;
+}
+/****************info__wrapper******************/
 /****************form__container******************/
 /****************todos_list******************/
 .todos__container {

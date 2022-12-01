@@ -28,6 +28,20 @@ const TaskForm = ({ create }) => {
           </div>
         </div>
       </form>
+      <hr />
+      <div className="info__wrapper">
+        <div className="info__content">
+          <h5>Double click todo and set state of it</h5>
+          <div className="completed-tasks">
+            <div className="square"></div>
+            <span>Completed tasks</span>
+          </div>
+          <div className="not-completed-tasks">
+            <div className="square"></div>
+            <span>Not completed tasks</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

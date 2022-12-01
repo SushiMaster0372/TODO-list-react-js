@@ -1,9 +1,10 @@
 import React from "react";
 import DeleteButton from "./UI/DeleteButton/DeleteButton";
 
-const TodoItem = ({ item, handleDelete }) => {
+const TodoItem = ({ item, handleDelete, handleCompleted }) => {
   return (
     <div
+      onDoubleClick={() => handleCompleted(item.id)}
       className={
         "item__container " +
         (item.completed ? "background-blue" : "background-green")
