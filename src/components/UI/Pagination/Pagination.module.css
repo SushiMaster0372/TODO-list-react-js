@@ -1,0 +1,25 @@
+.page__wrapper {
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-row-gap: 15px;
+}
+.page__item {
+  border: 2px solid #2f74c8;
+  border-radius: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.page__item span {
+  color: #2f74c8;
+}
+.current__page__item {
+  background: #2f74c8;
+}
+.current__page__item span {
+  color: #fff;
+}

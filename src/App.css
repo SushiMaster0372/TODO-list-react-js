@@ -138,6 +138,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 15px;
+  margin-bottom: 15px;
 }
 /****************todos_list******************/
 /****************todoItem******************/
