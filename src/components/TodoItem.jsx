@@ -1,7 +1,12 @@
 import React from "react";
 import DeleteButton from "./UI/DeleteButton/DeleteButton";
 
-const TodoItem = ({ item, handleDelete, handleCompleted }) => {
+const TodoItem = ({ item, handleDelete, handleCompleted, setModal }) => {
+  const doDelete = (item) => {
+    setModal(true);
+    handleDelete(item);
+  };
+
   return (
     <div
       onDoubleClick={() => handleCompleted(item.id)}
@@ -16,7 +21,7 @@ const TodoItem = ({ item, handleDelete, handleCompleted }) => {
         </h4>
       </div>
       <div className="hidden-button">
-        <DeleteButton onClick={() => handleDelete(item)} />
+        <DeleteButton onClick={() => doDelete(item)} />
       </div>
     </div>
   );

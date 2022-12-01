@@ -7,12 +7,16 @@ import TodosList from "./components/TodosList";
 import { useFetching } from "./hooks/useFetching";
 import Loader from "./components/UI/Loader/Loader";
 import { getPagesCount } from "./utils/pages";
+import MyModal from "./components/UI/MyModal/MyModal";
+import MyButton from "./components/UI/MyButton/MyButton";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [selectedNumber, setSelectedNumber] = useState(5);
   const [totalPages, setTotalPages] = useState(0);
   const [page, setPage] = useState(1);
+  const [modal, setModal] = useState(false);
+  const [itemtoDelete, setItemtoDelete] = useState({});
 
   const [fetchTodos, isTodosLoading, error] = useFetching(
     async (selectedNumber, page) => {
@@ -24,12 +28,21 @@ function App() {
   );
 
   useEffect(() => {
-    fetchTodos(selectedNumber, page);
-    console.log(1);
+    setPage(1);
+    fetchTodos(selectedNumber, 1);
   }, [selectedNumber]);
 
-  const removeTodo = (todoItem) => {
-    setTodos(todos.filter((item) => item.id !== todoItem.id));
+  const handleItemtoDelete = (item) => {
+    setItemtoDelete(item);
+  };
+
+  const toggleModal = (value) => {
+    setModal(value);
+  };
+
+  const removeTodo = () => {
+    setTodos(todos.filter((item) => item.id !== itemtoDelete.id));
+    setModal(false);
   };
 
   const createTodo = (newTodo) => {
@@ -53,6 +66,14 @@ function App() {
 
   return (
     <div className="container">
+      <MyModal visible={modal} setVisible={setModal}>
+        <div className="modal_container">
+          <h4>Do you want to delete this todo?</h4>
+          <div className="delete__container">
+            <MyButton onClick={removeTodo}>Delete</MyButton>
+          </div>
+        </div>
+      </MyModal>
       <Head />
       <div className="content">
         <TaskForm
@@ -72,11 +93,12 @@ function App() {
           <TodosList
             todos={todos}
             title="Todos List"
-            handleDelete={removeTodo}
+            handleDelete={handleItemtoDelete}
             handleCompleted={handleCompleted}
             totalPages={totalPages}
             page={page}
             changePage={changePage}
+            setModal={toggleModal}
           />
         )}
       </div>

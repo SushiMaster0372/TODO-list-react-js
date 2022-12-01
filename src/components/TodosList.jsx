@@ -10,13 +10,14 @@ const TodosList = ({
   totalPages,
   page,
   changePage,
+  setModal,
 }) => {
   if (!todos.length)
     return (
-      // <h1 className="todos__container center-in-right-wrapper">
-      //   Todo List is empty
-      // </h1>
-      changePage(page + 1)
+      <h1 className="todos__container center-in-right-wrapper">
+        Todo List is empty
+      </h1>
+      // changePage(page + 1)
     );
   return (
     <div className="todos__container ">
@@ -29,6 +30,7 @@ const TodosList = ({
               item={item}
               handleDelete={handleDelete}
               handleCompleted={handleCompleted}
+              setModal={setModal}
             />
           ))}
         </div>

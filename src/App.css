@@ -165,3 +165,17 @@ body {
   opacity: 1;
 }
 /****************todoItem******************/
+/****************ModalContainer******************/
+.modal_container {
+  position: relative;
+  height: 10vh;
+}
+.modal_container .delete__container {
+  position: absolute;
+  top: 70%;
+  right: 35%;
+}
+.modal_container h4 {
+  color: var(--lightBlue);
+}
+/****************ModalContainer******************/
