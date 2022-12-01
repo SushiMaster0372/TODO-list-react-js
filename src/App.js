@@ -4,20 +4,23 @@ import "./App.css";
 import Head from "./components/Head";
 import TaskForm from "./components/TaskForm";
 import TodosList from "./components/TodosList";
-import Loader from "./components/UI/Loader/Loader";
 import { useFetching } from "./hooks/useFetching";
+import Loader from "./components/UI/Loader/Loader";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [selectedNumber, setSelectedNumber] = useState(5);
 
-  const [fetchTodos, isTodosLoading, error] = useFetching(async () => {
-    const response = await TodoService.getAllTodos();
-    setTodos(response.data);
-  });
+  const [fetchTodos, isTodosLoading, error] = useFetching(
+    async (selectedNumber) => {
+      const response = await TodoService.getAllTodos(selectedNumber);
+      setTodos(response.data);
+    }
+  );
 
   useEffect(() => {
-    fetchTodos();
-  }, []);
+    fetchTodos(selectedNumber);
+  }, [selectedNumber]);
 
   const removeTodo = (todoItem) => {
     setTodos(todos.filter((item) => item.id !== todoItem.id));
@@ -41,14 +44,23 @@ function App() {
     <div className="container">
       <Head />
       <div className="content">
-        <TaskForm create={createTodo} />
-        <TodosList
-          todos={todos}
-          title="Todos List"
-          handleDelete={removeTodo}
-          handleCompleted={handleCompleted}
-          isLoading={isTodosLoading}
+        <TaskForm
+          create={createTodo}
+          value={selectedNumber}
+          onChange={(number) => setSelectedNumber(number)}
         />
+        {isTodosLoading ? (
+          <div className="todos__container center-in-right-wrapper">
+            <Loader />
+          </div>
+        ) : (
+          <TodosList
+            todos={todos}
+            title="Todos List"
+            handleDelete={removeTodo}
+            handleCompleted={handleCompleted}
+          />
+        )}
       </div>
     </div>
   );

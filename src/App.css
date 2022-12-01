@@ -50,7 +50,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.loading {
+.center-in-right-wrapper {
   height: 50vh;
   display: flex;
   justify-content: center;
@@ -62,7 +62,7 @@ body {
   top: 10px;
   padding: 5px 15px;
   width: 30%;
-  height: 50vh;
+  height: 80vh;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -88,11 +88,13 @@ body {
   margin: 10px 0;
 }
 /****************info__wrapper******************/
-.info__wrapper {
+.info__wrapper,
+.select_container {
   height: 15vh;
   padding: 5px 15px;
 }
-.info__wrapper h5 {
+.info__wrapper h5,
+.select_container h5 {
   margin-bottom: 5px;
   color: var(--lightBlue);
 }

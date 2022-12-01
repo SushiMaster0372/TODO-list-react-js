@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import MyButton from "./UI/MyButton/MyButton";
 import MyInput from "./UI/MyInput/MyInput";
+import MySelect from "./UI/MySelect/MySelect";
 
-const TaskForm = ({ create }) => {
+const TaskForm = ({ create, value, onChange }) => {
   const [todo, setTodo] = useState({ title: "", completed: false });
 
   const addNewTodos = (e) => {
@@ -41,6 +42,22 @@ const TaskForm = ({ create }) => {
             <span>Not completed tasks</span>
           </div>
         </div>
+      </div>
+      <hr />
+      <div className="select_container">
+        <h5>You can set number of shown todos</h5>
+        <MySelect
+          value={value}
+          onChange={onChange}
+          defaultValue="Amount of todos"
+          options={[
+            { value: 5, name: 5 },
+            { value: 10, name: 10 },
+            { value: 25, name: 25 },
+            { value: 100, name: 100 },
+            { value: 200, name: 200 },
+          ]}
+        />
       </div>
     </div>
   );
