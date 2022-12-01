@@ -42,16 +42,13 @@ function App() {
       <Head />
       <div className="content">
         <TaskForm create={createTodo} />
-        {isTodosLoading ? (
-          <Loader />
-        ) : (
-          <TodosList
-            todos={todos}
-            title="Todos List"
-            handleDelete={removeTodo}
-            handleCompleted={handleCompleted}
-          />
-        )}
+        <TodosList
+          todos={todos}
+          title="Todos List"
+          handleDelete={removeTodo}
+          handleCompleted={handleCompleted}
+          isLoading={isTodosLoading}
+        />
       </div>
     </div>
   );

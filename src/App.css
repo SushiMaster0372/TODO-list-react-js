@@ -50,6 +50,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.loading {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /****************form__container******************/
 .form__container {
   position: sticky;
